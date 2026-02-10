@@ -1,0 +1,130 @@
+<!-- frontend/templates/student_form.html -->
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mapua Library - Student Billing Form</title>
+    <link rel="stylesheet" href="{% static 'css/student.css' %}">
+</head>
+<body>
+    <div class="page-container">
+        <!-- Header -->
+        <div class="page-header">
+            <div class="header-content">
+                <h1>MAPUA LIBRARY</h1>
+                <p>Student Billing Form Submission</p>
+            </div>
+        </div>
+
+        <!-- Modal-style Form -->
+        <div class="form-container">
+            <div class="form-header">
+                <h2>CHARGE FORM</h2>
+            </div>
+            
+            <form id="billingForm">
+                <div class="form-body-grid">
+                    <!-- Left Column -->
+                    <div class="form-left">
+                        <div class="form-group">
+                            <label for="student_no">STUDENT NO:</label>
+                            <input type="text" id="student_no" name="student_no" class="form-input" placeholder="2020123456" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="student_name">NAME:</label>
+                            <input type="text" id="student_name" name="name" class="form-input" placeholder="DOE, JOHN M." required>
+                        </div>
+
+                        <div class="form-row-inline">
+                            <div class="form-group">
+                                <label for="program">PROGRAM:</label>
+                                <input type="text" id="program" name="program" class="form-input form-input-small" placeholder="CS" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="term">TERM:</label>
+                                <input type="text" id="term" name="term" class="form-input form-input-small" placeholder="1st" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="academic_year">A.Y.:</label>
+                            <input type="text" id="academic_year" name="academic_year" class="form-input" placeholder="2025-2026" value="2025-2026">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="description_label">DESCRIPTION:</label>
+                            <div class="description-items" id="descriptionItems">
+                                <div class="description-item">
+                                    <input type="text" class="form-input description-input" placeholder="PRINTING - BLCK GRAPHICS">
+                                    <div class="quantity-controls">
+                                        <button type="button" class="qty-btn qty-minus">−</button>
+                                        <input type="number" class="qty-input" value="1" min="1">
+                                        <button type="button" class="qty-btn qty-plus">+</button>
+                                    </div>
+                                    <input type="number" class="form-input amount-input" placeholder="₱5" value="5" step="0.01">
+                                    <button type="button" class="btn-remove-item" style="display: none;">×</button>
+                                </div>
+                            </div>
+                            <button type="button" class="btn-add-item" id="addDescriptionItem">+ Add Item</button>
+                        </div>
+
+                        <div class="signature-section">
+                            <div class="signature-group">
+                                <label for="charged_by">CHARGED BY:</label>
+                                <div class="signature-placeholder">Librarian Signature</div>
+                                <div class="signature-line"></div>
+                            </div>
+                            <div class="signature-group">
+                                <label for="conforme">CONFORME:</label>
+                                <div class="signature-placeholder">Student Signature</div>
+                                <div class="signature-line"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right Column - Summary -->
+                    <div class="form-right">
+                        <div class="summary-box">
+                            <div class="summary-row">
+                                <span class="summary-label">No:</span>
+                                <span class="summary-value" id="chargeNumber">------</span>
+                            </div>
+                            <div class="summary-row">
+                                <span class="summary-label">DATE:</span>
+                                <span class="summary-value" id="chargeDate">--/--/----</span>
+                            </div>
+                            <div class="summary-divider"></div>
+                            <div class="summary-row">
+                                <span class="summary-label">AMOUNT:</span>
+                            </div>
+                            <div class="amount-breakdown" id="amountBreakdown">
+                                <div class="amount-item">
+                                    <span>PRINTING - BLCK GRAPHICS(1)</span>
+                                    <span>₱5</span>
+                                </div>
+                            </div>
+                            <div class="summary-divider"></div>
+                            <div class="summary-row summary-total">
+                                <span class="summary-label">TOTAL:</span>
+                                <span class="summary-value-total" id="totalAmount">₱5.00</span>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn-save" id="submitBtn">SUBMIT</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <!-- Footer -->
+        <div class="page-footer">
+            <p>For assistance, please contact the library desk</p>
+        </div>
+    </div>
+
+    <script src="{% static 'js/student.js' %}"></script>
+</body>
+</html>
