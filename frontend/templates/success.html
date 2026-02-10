@@ -1,0 +1,23 @@
+<!-- frontend/templates/success.html -->
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Success - Mapua Library</title>
+    <link rel="stylesheet" href="{% static 'css/student.css' %}">
+</head>
+<body>
+    <div class="container">
+        <div class="success-card">
+            <div class="success-icon">✓</div>
+            <h1>Form Submitted Successfully!</h1>
+            <p>Your billing form has been submitted to the library.</p>
+            <p>The library staff will process your request shortly.</p>
+            
+            <a href="/" class="btn-back">Submit Another Form</a>
+        </div>
+    </div>
+</body>
+</html>
