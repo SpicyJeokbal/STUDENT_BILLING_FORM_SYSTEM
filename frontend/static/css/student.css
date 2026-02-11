@@ -463,3 +463,9 @@ body {
         grid-template-columns: 1fr;
     }
 }
+.signature-canvas {
+    border: 1px solid black;
+    background: white;
+    display: block;
+    margin-top: 6px;
+}

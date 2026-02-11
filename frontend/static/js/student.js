@@ -209,3 +209,53 @@ document.getElementById('billingForm').addEventListener('submit', function(e) {
 // Initialize summary on page load
 updateSummary();
 updateRemoveButtons();
+
+//student signature 
+function initSignaturePad(canvasId, inputId) {
+    const canvas = document.getElementById(canvasId);
+    if (!canvas) return;
+
+    const ctx = canvas.getContext("2d");
+    let drawing = false;
+
+    canvas.addEventListener("mousedown", () => {
+        drawing = true;
+        ctx.beginPath();
+    });
+
+    canvas.addEventListener("mouseup", () => {
+        drawing = false;
+
+        const input = document.getElementById(inputId);
+        if (input) {
+            input.value = canvas.toDataURL("image/png");
+        }
+    });
+
+    canvas.addEventListener("mousemove", (e) => {
+        if (!drawing) return;
+
+        const rect = canvas.getBoundingClientRect();
+        ctx.lineWidth = 2;
+        ctx.lineCap = "round";
+
+        ctx.lineTo(e.clientX - rect.left, e.clientY - rect.top);
+        ctx.stroke();
+    });
+}
+
+function clearPad(type) {
+    const canvas = document.getElementById(type + "Pad");
+    if (!canvas) return;
+
+    const ctx = canvas.getContext("2d");
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    const input = document.getElementById(type + "_signature");
+    if (input) input.value = "";
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+    initSignaturePad("studentPad", "student_signature");
+    initSignaturePad("librarianPad", "librarian_signature");
+});

@@ -72,17 +72,28 @@
                         </div>
 
                         <div class="signature-section">
-                            <div class="signature-group">
-                                <label for="charged_by">CHARGED BY:</label>
-                                <div class="signature-placeholder">Librarian Signature</div>
-                                <div class="signature-line"></div>
-                            </div>
-                            <div class="signature-group">
-                                <label for="conforme">CONFORME:</label>
-                                <div class="signature-placeholder">Student Signature</div>
-                                <div class="signature-line"></div>
-                            </div>
-                        </div>
+    <div class="signature-group">
+        <label for="charged_by">CHARGED BY:</label>
+        <div class="signature-placeholder">Librarian Signature</div>
+        <div class="signature-line"></div>
+    </div>
+
+    <div class="signature-group">
+        <label for="conforme">CONFORME:</label>
+
+        <!-- Student Signature Canvas -->
+        <canvas id="studentPad" width="250" height="80"
+            class="signature-canvas"></canvas>
+
+        <button type="button" class="qty-btn" onclick="clearPad('student')">
+            Clear
+        </button>
+
+        <input type="hidden" name="student_signature" id="student_signature">
+
+        <div class="signature-line"></div>
+    </div>
+</div>
                     </div>
 
                     <!-- Right Column - Summary -->
